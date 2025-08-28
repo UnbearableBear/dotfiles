@@ -1,0 +1,25 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = UnbearableBear
+	email = 705453+UnbearableBear@users.noreply.github.com
+	signingkey = {{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub
+[pager]
+	branch = false
+[pull]
+	rebase = true
+[core]
+	ignorecase = false
+	excludesFile = ~/.gitignore
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[rebase]
+	updateRefs = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
