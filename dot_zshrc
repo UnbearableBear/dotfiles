@@ -1,0 +1,49 @@
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+autoload -Uz compinit
+compinit
+
+export EDITOR="code -w"
+
+alias gs="git status"
+alias gd="git diff"
+alias gl='git log --graph --pretty='\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
+alias ga="git add"
+alias gaa="git add -A ."
+alias gr="git restore"
+alias grs="git restore --staged"
+alias gri="git rebase -i HEAD~"
+alias gc="git commit -m"
+alias gp="git push"
+
+alias pn=pnpm
+
+alias wp="cd ~/Workspace"
+
+alias editghost="code ~/.config/ghostty/config"
+
+alias ls="eza --icons"
+alias ll="eza -l --icons"
+alias la="eza -la --icons"
+
+alias brewdump="brew bundle dump --file ~/.brewrc"
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
